@@ -1,0 +1,41 @@
+bed NarrowPeak Files
+-Assay DNase_seq
+-Biosample Homosapien
+-Organ Blood
+-Cell T cell
+-Analysis GRCh38 
+copy reference in cloudlab folder
+1. ENCFF168GAN	-pos cropped to 180 char per line
+2. ENCFF260PVK	-pos cropped to 180 char per line
+3. ENCFF522GCK	-pos cropped to 200 char per line
+4. ENCFF749FDY	-pos cropped to 176 char per line
+5. ENCFF769QHG	-pos cropped to 180 char per line
+6. ENCFF050GDF	-pos cropped to 200 char per line
+7. ENCFF844TKP  -pos cropped to 180 char per line
+8. ENCFF275TRN	-pos cropped to 200 char per line
+9. ENCFF820RAY	-pos cropped to 200 char per line
+10.ENCFF986UZO	-pos cropped to 180 char per line
+
+2. bedtools getfasta -> output.txt
+
+	bedtools getfasta -fi /users/MarcosG/reference/hg38.fa -bed /users/MarcosG/neg168GAN.bed -fo /users/MarcosG/neg168GAN.txt
+
+3. Only rows of nucleotides -> new output.txt
+	awk '/^>/ {next} {print}' ENCFF050GDF.txt > seqENCFF050GDF.txt	
+4. Trim so lines are same length
+5. Positive files created
+
+
+6. Negative file creation
+Redownload original bed.gz file
+1. ENCFF168GAN	-finished
+2. ENCFF260PVK	-finished
+3. ENCFF522GCK	-finished
+4. ENCFF749FDY	-finished
+5. ENCFF769QHG	-finished
+6. ENCFF050GDF	-finished
+7. ENCFF844TKP  -finished
+8. ENCFF275TRN	-finished
+9. ENCFF820RAY	-finoshed
+10.ENCFF986UZO	-finished 
+
