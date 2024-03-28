@@ -26,8 +26,8 @@ def write_bed_file(regions, output_file):
 
 
 def main():
-    bed_file = "ENCFF986UZO.bed" 
-    output_file = "neg986UZO.bed"
+    bed_file = "ENCFF168GAN.bed" 
+    output_file = "neg168GAN.bed"
 
     regions = parse_bed_file(bed_file)
     inaccessible_regions = find_inaccessible_regions(regions)
