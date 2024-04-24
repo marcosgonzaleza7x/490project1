@@ -8,9 +8,11 @@ def crop_sequences(filename, optimal_length):
     with open(filename, 'r') as file:
         for line in file:
             sequence = line.strip()
-            cropped_sequence = sequence[:optimal_length]  # Crop sequences longer than optimal length
-            cropped_sequences.append(cropped_sequence)
+            if len(sequence) >= optimal_length:
+                cropped_sequence = sequence[:optimal_length]  # Crop sequences longer than optimal length
+                cropped_sequences.append(cropped_sequence)
     return cropped_sequences
+
 
 def find_optimal_length(lengths):
     total_length = sum(lengths)
