@@ -8,18 +8,16 @@ def crop_sequences(filename, optimal_length):
     with open(filename, 'r') as file:
         for line in file:
             sequence = line.strip()
-            if len(sequence) >= optimal_length:
-                cropped_sequences.append(sequence[:optimal_length])
+            cropped_sequence = sequence[:optimal_length]  # Crop sequences longer than optimal length
+            cropped_sequences.append(cropped_sequence)
     return cropped_sequences
 
 def find_optimal_length(lengths):
-    sorted_lengths = sorted(lengths)
-    num_sequences = len(sorted_lengths)
-    if num_sequences % 2 == 0:
-        median_length = (sorted_lengths[num_sequences // 2 - 1] + sorted_lengths[num_sequences // 2]) / 2
-    else:
-        median_length = sorted_lengths[num_sequences // 2]
-    return median_length
+    total_length = sum(lengths)
+    num_sequences = len(lengths)
+    average_length = total_length / num_sequences
+    return average_length
+
 
 def write_sequences_to_file(sequences, output_filename):
     with open(output_filename, 'w') as file:
